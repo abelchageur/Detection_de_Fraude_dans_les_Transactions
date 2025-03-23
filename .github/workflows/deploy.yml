@@ -34,13 +34,16 @@ jobs:
 
       - name: create database
         run: docker exec postgres bash -c "psql -U airflow -c 'CREATE DATABASE metastore_db;'"
-        
+
       - name: check postgres database
         run: docker exec postgres bash -c "psql -U airflow -c '\l'"
 
 
       - name: Run schematool in hive
         run: docker exec hive schematool -initSchema -dbType postgres
+
+      - name:  exit Safe Mode
+        run: docker exec namenode hdfs dfsadmin -safemode leave
 
       - name: Run Tests in hive
         run: docker exec hive bash -c "hive -e 'show tables;'"
