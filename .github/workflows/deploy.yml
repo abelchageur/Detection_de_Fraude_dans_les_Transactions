@@ -25,3 +25,12 @@ jobs:
 
       - name: Run Tests in Docker
         run: docker ps
+
+      - name: Verify API Endpoints
+        run: |
+          curl http://localhost:5000/api/transactions
+          curl http://localhost:5000/api/customers
+          curl http://localhost:5000/api/externalData
+
+      - name: Run Tests in hive
+        run: docker exec -it hive bash -c "hive -e 'show tables;'"
