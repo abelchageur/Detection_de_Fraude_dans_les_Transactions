@@ -31,7 +31,10 @@ jobs:
           curl http://localhost:5000/api/transactions
           curl http://localhost:5000/api/customers
           curl http://localhost:5000/api/externalData
-  
+
+      - name: create database
+        run: docker exec postgres bash -c "psql -U airflow -c 'CREATE DATABASE metastore_db;'"
+        
       - name: check postgres database
         run: docker exec postgres bash -c "psql -U airflow -c '\l'"
 
