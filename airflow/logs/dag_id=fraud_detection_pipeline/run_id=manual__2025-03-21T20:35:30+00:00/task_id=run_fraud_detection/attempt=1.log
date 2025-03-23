@@ -1,0 +1,35 @@
+[2025-03-21T20:36:40.968+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.run_fraud_detection manual__2025-03-21T20:35:30+00:00 [queued]>
+[2025-03-21T20:36:40.978+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.run_fraud_detection manual__2025-03-21T20:35:30+00:00 [queued]>
+[2025-03-21T20:36:40.979+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 4
+[2025-03-21T20:36:40.994+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): run_fraud_detection> on 2025-03-21 20:35:30+00:00
+[2025-03-21T20:36:41.002+0000] {standard_task_runner.py:57} INFO - Started process 1073 to run task
+[2025-03-21T20:36:41.006+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'run_fraud_detection', 'manual__2025-03-21T20:35:30+00:00', '--job-id', '3649', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmp62g6l_u9']
+[2025-03-21T20:36:41.009+0000] {standard_task_runner.py:85} INFO - Job 3649: Subtask run_fraud_detection
+[2025-03-21T20:36:41.064+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.run_fraud_detection manual__2025-03-21T20:35:30+00:00 [running]> on host f665883f3a95
+[2025-03-21T20:36:41.147+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='abelchaguermohamed@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='run_fraud_detection' AIRFLOW_CTX_EXECUTION_DATE='2025-03-21T20:35:30+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-21T20:35:30+00:00'
+[2025-03-21T20:36:57.480+0000] {logging_mixin.py:151} INFO - Suspicious Transactions Detected:
+[2025-03-21T20:36:57.482+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-03-21T20:36:57.503+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline, task_id=run_fraud_detection, execution_date=20250321T203530, start_date=20250321T203640, end_date=20250321T203657
+[2025-03-21T20:36:57.524+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-21T20:36:57.525+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-21T20:36:59.428+0000] {taskinstance.py:1703} ERROR - Error when executing notify_success callback
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1700, in _run_finished_callback
+    callback(context)
+  File "/opt/airflow/dags/dag_1.py", line 29, in notify_success
+    send_email(to=email, subject=subject, html_content=html_content)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 281, in send_mime_email
+    smtp_conn.login(smtp_user, smtp_password)
+  File "/usr/local/lib/python3.8/smtplib.py", line 748, in login
+    raise last_exception
+  File "/usr/local/lib/python3.8/smtplib.py", line 737, in login
+    (code, resp) = self.auth(
+  File "/usr/local/lib/python3.8/smtplib.py", line 660, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-3997f9e65e0sm3363337f8f.61 - gsmtp')
+[2025-03-21T20:36:59.509+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-21T20:36:59.529+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

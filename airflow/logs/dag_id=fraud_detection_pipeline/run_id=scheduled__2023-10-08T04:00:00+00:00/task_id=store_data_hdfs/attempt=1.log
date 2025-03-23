@@ -1,0 +1,19 @@
+[2025-03-19T12:10:14.851+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-08T04:00:00+00:00 [queued]>
+[2025-03-19T12:10:14.870+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-08T04:00:00+00:00 [queued]>
+[2025-03-19T12:10:14.871+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-19T12:10:14.898+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): store_data_hdfs> on 2023-10-08 04:00:00+00:00
+[2025-03-19T12:10:14.908+0000] {standard_task_runner.py:57} INFO - Started process 4300 to run task
+[2025-03-19T12:10:14.914+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'store_data_hdfs', 'scheduled__2023-10-08T04:00:00+00:00', '--job-id', '530', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmpb2970__u']
+[2025-03-19T12:10:14.919+0000] {standard_task_runner.py:85} INFO - Job 530: Subtask store_data_hdfs
+[2025-03-19T12:10:15.022+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-08T04:00:00+00:00 [running]> on host 0009f5fb76aa
+[2025-03-19T12:10:15.206+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='store_data_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2023-10-08T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-08T04:00:00+00:00'
+[2025-03-19T12:10:15.210+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-19T12:10:15.212+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker cp /tmp/transactions.json namenode:/tmp/transactions.json && docker cp /tmp/customers.json namenode:/tmp/customers.json && docker cp /tmp/external_data.json namenode:/tmp/external_data.json && rm -rf /tmp/external_data.json  && rm -rf /tmp/customers.json  && rm -rf /tmp/transactions.json  && docker exec namenode bash -c "hdfs dfs -mkdir -p /data && hdfs dfs -put -f /tmp/transactions.json /data/transactions.json && hdfs dfs -put -f /tmp/customers.json /data/customers.json && hdfs dfs -put -f /tmp/external_data.json /data/external_data.json && rm -rf /tmp/customers.json  && rm -rf /tmp/customers.json  && rm -rf /tmp/external_data.json "']
+[2025-03-19T12:10:15.245+0000] {subprocess.py:86} INFO - Output:
+[2025-03-19T12:10:21.878+0000] {subprocess.py:93} INFO - 2025-03-19 12:10:21,875 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[2025-03-19T12:10:26.272+0000] {subprocess.py:93} INFO - 2025-03-19 12:10:26,270 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[2025-03-19T12:10:30.769+0000] {subprocess.py:93} INFO - 2025-03-19 12:10:30,766 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[2025-03-19T12:10:31.582+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-03-19T12:10:31.612+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline, task_id=store_data_hdfs, execution_date=20231008T040000, start_date=20250319T121014, end_date=20250319T121031
+[2025-03-19T12:10:31.653+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-19T12:10:31.678+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

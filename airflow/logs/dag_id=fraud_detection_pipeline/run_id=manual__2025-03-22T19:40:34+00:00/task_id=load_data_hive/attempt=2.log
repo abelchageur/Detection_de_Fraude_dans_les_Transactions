@@ -1,0 +1,26 @@
+[2025-03-22T19:46:18.882+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.load_data_hive manual__2025-03-22T19:40:34+00:00 [queued]>
+[2025-03-22T19:46:18.894+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.load_data_hive manual__2025-03-22T19:40:34+00:00 [queued]>
+[2025-03-22T19:46:18.897+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 4
+[2025-03-22T19:46:18.914+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): load_data_hive> on 2025-03-22 19:40:34+00:00
+[2025-03-22T19:46:18.920+0000] {standard_task_runner.py:57} INFO - Started process 1275 to run task
+[2025-03-22T19:46:18.926+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'load_data_hive', 'manual__2025-03-22T19:40:34+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmpf026ml5s']
+[2025-03-22T19:46:18.931+0000] {standard_task_runner.py:85} INFO - Job 42: Subtask load_data_hive
+[2025-03-22T19:46:19.005+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.load_data_hive manual__2025-03-22T19:40:34+00:00 [running]> on host c18b752134e7
+[2025-03-22T19:46:19.108+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='abelchaguermohamed@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='load_data_hive' AIRFLOW_CTX_EXECUTION_DATE='2025-03-22T19:40:34+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-22T19:40:34+00:00'
+[2025-03-22T19:46:19.110+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-22T19:46:19.112+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec hive hive -f /home/hive_script.hql']
+[2025-03-22T19:46:19.123+0000] {subprocess.py:86} INFO - Output:
+[2025-03-22T19:46:19.195+0000] {subprocess.py:93} INFO - Error response from daemon: container 65e721a916955b034b549963155e3aaeec4809f2ba039e8962102fdcc4b9d0e9 is not running
+[2025-03-22T19:46:19.197+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-03-22T19:46:19.208+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-22T19:46:19.213+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=fraud_detection_pipeline, task_id=load_data_hive, execution_date=20250322T194034, start_date=20250322T194618, end_date=20250322T194619
+[2025-03-22T19:46:19.238+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-22T19:46:19.239+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-22T19:46:20.000+0000] {email.py:282} INFO - Sent an alert email to ['abelchaguermohamed@gmail.com']
+[2025-03-22T19:46:21.709+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 42 for task load_data_hive (Bash command failed. The command returned a non-zero exit code 1.; 1275)
+[2025-03-22T19:46:21.756+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-22T19:46:21.781+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

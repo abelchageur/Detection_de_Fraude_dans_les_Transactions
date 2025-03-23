@@ -1,0 +1,37 @@
+[2025-03-19T11:10:52.452+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2023-10-01T08:00:00+00:00 [queued]>
+[2025-03-19T11:10:52.509+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2023-10-01T08:00:00+00:00 [queued]>
+[2025-03-19T11:10:52.514+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-03-19T11:10:52.642+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): fetch_data> on 2023-10-01 08:00:00+00:00
+[2025-03-19T11:10:52.672+0000] {standard_task_runner.py:57} INFO - Started process 4197 to run task
+[2025-03-19T11:10:52.675+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'fetch_data', 'scheduled__2023-10-01T08:00:00+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmpvb57wp_u']
+[2025-03-19T11:10:52.683+0000] {standard_task_runner.py:85} INFO - Job 23: Subtask fetch_data
+[2025-03-19T11:10:53.151+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2023-10-01T08:00:00+00:00 [running]> on host 0009f5fb76aa
+[2025-03-19T11:10:53.765+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='fetch_data' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T08:00:00+00:00'
+[2025-03-19T11:10:54.040+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/local/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag_1.py", line 34, in fetch_data
+    external_data = requests.get("http://flask_api:5000/api/externalData").json()
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2025-03-19T11:10:54.132+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=fraud_detection_pipeline, task_id=fetch_data, execution_date=20231001T080000, start_date=20250319T111052, end_date=20250319T111054
+[2025-03-19T11:10:54.301+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 23 for task fetch_data (Expecting value: line 1 column 1 (char 0); 4197)
+[2025-03-19T11:10:54.412+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-19T11:10:54.527+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,289 @@
+[2025-03-22T21:51:30.022+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.populate_blacklist manual__2025-03-22T21:50:28+00:00 [queued]>
+[2025-03-22T21:51:30.031+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.populate_blacklist manual__2025-03-22T21:50:28+00:00 [queued]>
+[2025-03-22T21:51:30.032+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 4
+[2025-03-22T21:51:30.048+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): populate_blacklist> on 2025-03-22 21:50:28+00:00
+[2025-03-22T21:51:30.054+0000] {standard_task_runner.py:57} INFO - Started process 2741 to run task
+[2025-03-22T21:51:30.057+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'populate_blacklist', 'manual__2025-03-22T21:50:28+00:00', '--job-id', '67', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmpj1sslrzg']
+[2025-03-22T21:51:30.060+0000] {standard_task_runner.py:85} INFO - Job 67: Subtask populate_blacklist
+[2025-03-22T21:51:30.111+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.populate_blacklist manual__2025-03-22T21:50:28+00:00 [running]> on host 4ece88aec9a9
+[2025-03-22T21:51:30.191+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='abelchaguermohamed@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='populate_blacklist' AIRFLOW_CTX_EXECUTION_DATE='2025-03-22T21:50:28+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-22T21:50:28+00:00'
+[2025-03-22T21:51:30.193+0000] {dag_1.py:162} INFO - Fetching blacklist data from API...
+[2025-03-22T21:51:30.201+0000] {dag_1.py:164} INFO - API Response: {
+  "blacklist_info": [
+    "Merchant25",
+    "Merchant24",
+    "Merchant24",
+    "Merchant23",
+    "Merchant29",
+    "Merchant22",
+    "Merchant24",
+    "Merchant23",
+    "Merchant27",
+    "Merchant23"
+  ],
+  "credit_scores": {
+    "C000": 489,
+    "C001": 360,
+    "C002": 528,
+    "C003": 617,
+    "C004": 408,
+    "C005": 839,
+    "C006": 313,
+    "C007": 384,
+    "C008": 459,
+    "C009": 471,
+    "C010": 806,
+    "C011": 560,
+    "C012": 554,
+    "C013": 326,
+    "C014": 701,
+    "C015": 773,
+    "C016": 305,
+    "C017": 686,
+    "C018": 426,
+    "C019": 705,
+    "C020": 304,
+    "C021": 635,
+    "C022": 693,
+    "C023": 693,
+    "C024": 437,
+    "C025": 798,
+    "C026": 651,
+    "C027": 314,
+    "C028": 363,
+    "C029": 571,
+    "C030": 603,
+    "C031": 356,
+    "C032": 820,
+    "C033": 673,
+    "C034": 535,
+    "C035": 800,
+    "C036": 807,
+    "C037": 712,
+    "C038": 721,
+    "C039": 460,
+    "C040": 321,
+    "C041": 330,
+    "C042": 400,
+    "C043": 479,
+    "C044": 346,
+    "C045": 357,
+    "C046": 814,
+    "C047": 647,
+    "C048": 340,
+    "C049": 719,
+    "C050": 699,
+    "C051": 552,
+    "C052": 433,
+    "C053": 506,
+    "C054": 629,
+    "C055": 379,
+    "C056": 416,
+    "C057": 606,
+    "C058": 459,
+    "C059": 339,
+    "C060": 433,
+    "C061": 644,
+    "C062": 311,
+    "C063": 412,
+    "C064": 841,
+    "C065": 757,
+    "C066": 783,
+    "C067": 492,
+    "C068": 590,
+    "C069": 790,
+    "C070": 602,
+    "C071": 410,
+    "C072": 755,
+    "C073": 623,
+    "C074": 318,
+    "C075": 432,
+    "C076": 593,
+    "C077": 354,
+    "C078": 732,
+    "C079": 435,
+    "C080": 371,
+    "C081": 426,
+    "C082": 675,
+    "C083": 703,
+    "C084": 805,
+    "C085": 471,
+    "C086": 827,
+    "C087": 812,
+    "C088": 591,
+    "C089": 316,
+    "C090": 344,
+    "C091": 568,
+    "C092": 472,
+    "C093": 525,
+    "C094": 451,
+    "C095": 426,
+    "C096": 418,
+    "C097": 711,
+    "C098": 735,
+    "C099": 343
+  },
+  "fraud_reports": {
+    "C000": 4,
+    "C001": 2,
+    "C002": 0,
+    "C003": 2,
+    "C004": 0,
+    "C005": 4,
+    "C006": 4,
+    "C007": 0,
+    "C008": 2,
+    "C009": 0,
+    "C010": 3,
+    "C011": 4,
+    "C012": 3,
+    "C013": 1,
+    "C014": 1,
+    "C015": 2,
+    "C016": 1,
+    "C017": 3,
+    "C018": 2,
+    "C019": 0,
+    "C020": 1,
+    "C021": 0,
+    "C022": 1,
+    "C023": 3,
+    "C024": 0,
+    "C025": 1,
+    "C026": 3,
+    "C027": 2,
+    "C028": 0,
+    "C029": 0,
+    "C030": 2,
+    "C031": 4,
+    "C032": 1,
+    "C033": 4,
+    "C034": 1,
+    "C035": 2,
+    "C036": 2,
+    "C037": 4,
+    "C038": 2,
+    "C039": 3,
+    "C040": 4,
+    "C041": 1,
+    "C042": 4,
+    "C043": 2,
+    "C044": 5,
+    "C045": 1,
+    "C046": 4,
+    "C047": 2,
+    "C048": 0,
+    "C049": 3,
+    "C050": 0,
+    "C051": 4,
+    "C052": 5,
+    "C053": 2,
+    "C054": 1,
+    "C055": 5,
+    "C056": 1,
+    "C057": 2,
+    "C058": 4,
+    "C059": 5,
+    "C060": 0,
+    "C061": 5,
+    "C062": 1,
+    "C063": 0,
+    "C064": 5,
+    "C065": 4,
+    "C066": 0,
+    "C067": 0,
+    "C068": 1,
+    "C069": 2,
+    "C070": 0,
+    "C071": 5,
+    "C072": 5,
+    "C073": 5,
+    "C074": 3,
+    "C075": 3,
+    "C076": 3,
+    "C077": 5,
+    "C078": 2,
+    "C079": 2,
+    "C080": 0,
+    "C081": 3,
+    "C082": 0,
+    "C083": 1,
+    "C084": 5,
+    "C085": 0,
+    "C086": 1,
+    "C087": 4,
+    "C088": 0,
+    "C089": 3,
+    "C090": 3,
+    "C091": 3,
+    "C092": 3,
+    "C093": 5,
+    "C094": 3,
+    "C095": 0,
+    "C096": 1,
+    "C097": 5,
+    "C098": 2,
+    "C099": 4
+  }
+}
+
+[2025-03-22T21:51:30.202+0000] {dag_1.py:168} INFO - Parsed JSON: {'blacklist_info': ['Merchant25', 'Merchant24', 'Merchant24', 'Merchant23', 'Merchant29', 'Merchant22', 'Merchant24', 'Merchant23', 'Merchant27', 'Merchant23'], 'credit_scores': {'C000': 489, 'C001': 360, 'C002': 528, 'C003': 617, 'C004': 408, 'C005': 839, 'C006': 313, 'C007': 384, 'C008': 459, 'C009': 471, 'C010': 806, 'C011': 560, 'C012': 554, 'C013': 326, 'C014': 701, 'C015': 773, 'C016': 305, 'C017': 686, 'C018': 426, 'C019': 705, 'C020': 304, 'C021': 635, 'C022': 693, 'C023': 693, 'C024': 437, 'C025': 798, 'C026': 651, 'C027': 314, 'C028': 363, 'C029': 571, 'C030': 603, 'C031': 356, 'C032': 820, 'C033': 673, 'C034': 535, 'C035': 800, 'C036': 807, 'C037': 712, 'C038': 721, 'C039': 460, 'C040': 321, 'C041': 330, 'C042': 400, 'C043': 479, 'C044': 346, 'C045': 357, 'C046': 814, 'C047': 647, 'C048': 340, 'C049': 719, 'C050': 699, 'C051': 552, 'C052': 433, 'C053': 506, 'C054': 629, 'C055': 379, 'C056': 416, 'C057': 606, 'C058': 459, 'C059': 339, 'C060': 433, 'C061': 644, 'C062': 311, 'C063': 412, 'C064': 841, 'C065': 757, 'C066': 783, 'C067': 492, 'C068': 590, 'C069': 790, 'C070': 602, 'C071': 410, 'C072': 755, 'C073': 623, 'C074': 318, 'C075': 432, 'C076': 593, 'C077': 354, 'C078': 732, 'C079': 435, 'C080': 371, 'C081': 426, 'C082': 675, 'C083': 703, 'C084': 805, 'C085': 471, 'C086': 827, 'C087': 812, 'C088': 591, 'C089': 316, 'C090': 344, 'C091': 568, 'C092': 472, 'C093': 525, 'C094': 451, 'C095': 426, 'C096': 418, 'C097': 711, 'C098': 735, 'C099': 343}, 'fraud_reports': {'C000': 4, 'C001': 2, 'C002': 0, 'C003': 2, 'C004': 0, 'C005': 4, 'C006': 4, 'C007': 0, 'C008': 2, 'C009': 0, 'C010': 3, 'C011': 4, 'C012': 3, 'C013': 1, 'C014': 1, 'C015': 2, 'C016': 1, 'C017': 3, 'C018': 2, 'C019': 0, 'C020': 1, 'C021': 0, 'C022': 1, 'C023': 3, 'C024': 0, 'C025': 1, 'C026': 3, 'C027': 2, 'C028': 0, 'C029': 0, 'C030': 2, 'C031': 4, 'C032': 1, 'C033': 4, 'C034': 1, 'C035': 2, 'C036': 2, 'C037': 4, 'C038': 2, 'C039': 3, 'C040': 4, 'C041': 1, 'C042': 4, 'C043': 2, 'C044': 5, 'C045': 1, 'C046': 4, 'C047': 2, 'C048': 0, 'C049': 3, 'C050': 0, 'C051': 4, 'C052': 5, 'C053': 2, 'C054': 1, 'C055': 5, 'C056': 1, 'C057': 2, 'C058': 4, 'C059': 5, 'C060': 0, 'C061': 5, 'C062': 1, 'C063': 0, 'C064': 5, 'C065': 4, 'C066': 0, 'C067': 0, 'C068': 1, 'C069': 2, 'C070': 0, 'C071': 5, 'C072': 5, 'C073': 5, 'C074': 3, 'C075': 3, 'C076': 3, 'C077': 5, 'C078': 2, 'C079': 2, 'C080': 0, 'C081': 3, 'C082': 0, 'C083': 1, 'C084': 5, 'C085': 0, 'C086': 1, 'C087': 4, 'C088': 0, 'C089': 3, 'C090': 3, 'C091': 3, 'C092': 3, 'C093': 5, 'C094': 3, 'C095': 0, 'C096': 1, 'C097': 5, 'C098': 2, 'C099': 4}}
+[2025-03-22T21:51:30.203+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C000', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.204+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C005', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.204+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C006', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.205+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C011', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.205+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C031', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.206+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C033', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.207+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C037', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.207+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C040', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.208+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C042', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.209+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C044', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.209+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C046', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.210+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C051', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.210+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C052', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.211+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C055', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.212+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C058', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.212+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C059', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.212+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C061', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.213+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C064', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.213+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C065', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.213+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C071', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.214+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C072', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.214+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C073', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.214+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C077', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.215+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C084', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.215+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C087', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.215+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C093', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.215+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C097', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:30.216+0000] {dag_1.py:189} INFO - Processing entry: {'customer_id': 'C099', 'blacklist_reason': 'high_fraud_reports', 'blacklist_date': '2025-03-22 21:51:30', 'source': 'external_api'}
+[2025-03-22T21:51:49.145+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-03-22T21:51:49.157+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline, task_id=populate_blacklist, execution_date=20250322T215028, start_date=20250322T215130, end_date=20250322T215149
+[2025-03-22T21:51:49.171+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-22T21:51:49.172+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-22T21:52:10.289+0000] {taskinstance.py:1703} ERROR - Error when executing notify_success callback
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1700, in _run_finished_callback
+    callback(context)
+  File "/opt/airflow/dags/dag_1.py", line 29, in notify_success
+    send_email(to=email, subject=subject, html_content=html_content)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 80, in send_email
+    return backend(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 154, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 272, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/email.py", line 317, in _get_smtp_connection
+    return smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.8/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.8/smtplib.py", line 339, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.8/smtplib.py", line 310, in _get_socket
+    return socket.create_connection((host, port), timeout,
+  File "/usr/local/lib/python3.8/socket.py", line 808, in create_connection
+    raise err
+  File "/usr/local/lib/python3.8/socket.py", line 796, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
+[2025-03-22T21:52:10.327+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-22T21:52:10.351+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

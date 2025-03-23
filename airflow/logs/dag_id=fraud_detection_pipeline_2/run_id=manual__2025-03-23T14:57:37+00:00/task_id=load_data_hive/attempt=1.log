@@ -1,0 +1,34 @@
+[2025-03-23T14:58:06.584+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline_2.load_data_hive manual__2025-03-23T14:57:37+00:00 [queued]>
+[2025-03-23T14:58:06.599+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline_2.load_data_hive manual__2025-03-23T14:57:37+00:00 [queued]>
+[2025-03-23T14:58:06.599+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 4
+[2025-03-23T14:58:06.620+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): load_data_hive> on 2025-03-23 14:57:37+00:00
+[2025-03-23T14:58:06.627+0000] {standard_task_runner.py:57} INFO - Started process 11073 to run task
+[2025-03-23T14:58:06.631+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline_2', 'load_data_hive', 'manual__2025-03-23T14:57:37+00:00', '--job-id', '143', '--raw', '--subdir', 'DAGS_FOLDER/dag_2.py', '--cfg-path', '/tmp/tmpkvwjjjut']
+[2025-03-23T14:58:06.640+0000] {standard_task_runner.py:85} INFO - Job 143: Subtask load_data_hive
+[2025-03-23T14:58:06.730+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline_2.load_data_hive manual__2025-03-23T14:57:37+00:00 [running]> on host 4ece88aec9a9
+[2025-03-23T14:58:06.875+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='abelchaguermohmaed@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline_2' AIRFLOW_CTX_TASK_ID='load_data_hive' AIRFLOW_CTX_EXECUTION_DATE='2025-03-23T14:57:37+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-23T14:57:37+00:00'
+[2025-03-23T14:58:06.878+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-23T14:58:06.879+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec hive hive -f /home/hive_script.hql']
+[2025-03-23T14:58:06.899+0000] {subprocess.py:86} INFO - Output:
+[2025-03-23T14:58:09.637+0000] {subprocess.py:93} INFO - SLF4J: Class path contains multiple SLF4J bindings.
+[2025-03-23T14:58:09.638+0000] {subprocess.py:93} INFO - SLF4J: Found binding in [jar:file:/opt/hive/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-23T14:58:09.639+0000] {subprocess.py:93} INFO - SLF4J: Found binding in [jar:file:/opt/hadoop-2.7.4/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-23T14:58:09.640+0000] {subprocess.py:93} INFO - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-23T14:58:09.641+0000] {subprocess.py:93} INFO - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+[2025-03-23T14:58:11.483+0000] {subprocess.py:93} INFO - 
+[2025-03-23T14:58:11.484+0000] {subprocess.py:93} INFO - Logging initialized using configuration in file:/opt/hive/conf/hive-log4j2.properties Async: true
+[2025-03-23T14:58:24.696+0000] {subprocess.py:93} INFO - OK
+[2025-03-23T14:58:24.698+0000] {subprocess.py:93} INFO - Time taken: 10.387 seconds
+[2025-03-23T14:58:24.950+0000] {subprocess.py:93} INFO - OK
+[2025-03-23T14:58:24.951+0000] {subprocess.py:93} INFO - Time taken: 0.25 seconds
+[2025-03-23T14:58:24.987+0000] {subprocess.py:93} INFO - OK
+[2025-03-23T14:58:24.988+0000] {subprocess.py:93} INFO - Time taken: 0.035 seconds
+[2025-03-23T14:58:25.023+0000] {subprocess.py:93} INFO - OK
+[2025-03-23T14:58:25.024+0000] {subprocess.py:93} INFO - Time taken: 0.034 seconds
+[2025-03-23T14:58:25.526+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-03-23T14:58:25.563+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline_2, task_id=load_data_hive, execution_date=20250323T145737, start_date=20250323T145806, end_date=20250323T145825
+[2025-03-23T14:58:25.582+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-23T14:58:25.584+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-23T14:58:26.379+0000] {email.py:282} INFO - Sent an alert email to ['abelchaguermohmaed@gmail.com']
+[2025-03-23T14:58:28.040+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-23T14:58:28.074+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

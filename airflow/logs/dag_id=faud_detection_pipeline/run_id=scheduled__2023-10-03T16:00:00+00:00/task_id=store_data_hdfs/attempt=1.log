@@ -1,0 +1,24 @@
+[2025-03-19T15:45:01.488+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: faud_detection_pipeline.store_data_hdfs scheduled__2023-10-03T16:00:00+00:00 [queued]>
+[2025-03-19T15:45:01.522+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: faud_detection_pipeline.store_data_hdfs scheduled__2023-10-03T16:00:00+00:00 [queued]>
+[2025-03-19T15:45:01.523+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-19T15:45:01.630+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): store_data_hdfs> on 2023-10-03 16:00:00+00:00
+[2025-03-19T15:45:01.659+0000] {standard_task_runner.py:57} INFO - Started process 14013 to run task
+[2025-03-19T15:45:01.684+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'faud_detection_pipeline', 'store_data_hdfs', 'scheduled__2023-10-03T16:00:00+00:00', '--job-id', '1412', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmp7egyp6iz']
+[2025-03-19T15:45:01.699+0000] {standard_task_runner.py:85} INFO - Job 1412: Subtask store_data_hdfs
+[2025-03-19T15:45:01.946+0000] {task_command.py:415} INFO - Running <TaskInstance: faud_detection_pipeline.store_data_hdfs scheduled__2023-10-03T16:00:00+00:00 [running]> on host 0009f5fb76aa
+[2025-03-19T15:45:02.419+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='faud_detection_pipeline' AIRFLOW_CTX_TASK_ID='store_data_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2023-10-03T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-03T16:00:00+00:00'
+[2025-03-19T15:45:02.430+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-19T15:45:02.434+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker cp /tmp/transactions.json namenode:/tmp/transactions.json && docker cp /tmp/customers.json namenode:/tmp/customers.json && docker cp /tmp/external_data.json namenode:/tmp/external_data.json && docker exec namenode bash -c "hdfs dfs -mkdir -p /data/transactions && hdfs dfs -mkdir -p /data/customers && hdfs dfs -mkdir -p /data/external_data && hdfs dfs -put -f /tmp/transactions.json /data/transactions/transactions.json && hdfs dfs -put -f /tmp/customers.json /data/customers/customers.json && hdfs dfs -put -f /tmp/external_data.json /data/external_data/external_data.json && rm -rf /tmp/transactions.json /tmp/customers.json /tmp/external_data.json"']
+[2025-03-19T15:45:02.518+0000] {subprocess.py:86} INFO - Output:
+[2025-03-19T15:46:27.503+0000] {subprocess.py:93} INFO - 2025-03-19 15:46:27,500 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[2025-03-19T15:46:27.885+0000] {subprocess.py:93} INFO - put: File does not exist: /data/transactions/transactions.json._COPYING_ (inode 16791) Holder DFSClient_NONMAPREDUCE_1171683758_1 does not have any open files.
+[2025-03-19T15:46:28.368+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-03-19T15:46:28.402+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-19T15:46:28.418+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=faud_detection_pipeline, task_id=store_data_hdfs, execution_date=20231003T160000, start_date=20250319T154501, end_date=20250319T154628
+[2025-03-19T15:46:28.784+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 1412 for task store_data_hdfs (Bash command failed. The command returned a non-zero exit code 1.; 14013)
+[2025-03-19T15:46:28.848+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-19T15:46:28.913+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

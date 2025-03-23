@@ -1,0 +1,17 @@
+[2025-03-22T23:06:30.235+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.run_fraud_detection manual__2025-03-22T23:05:19+00:00 [queued]>
+[2025-03-22T23:06:30.247+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.run_fraud_detection manual__2025-03-22T23:05:19+00:00 [queued]>
+[2025-03-22T23:06:30.248+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 4
+[2025-03-22T23:06:30.265+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): run_fraud_detection> on 2025-03-22 23:05:19+00:00
+[2025-03-22T23:06:30.271+0000] {standard_task_runner.py:57} INFO - Started process 4664 to run task
+[2025-03-22T23:06:30.275+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'run_fraud_detection', 'manual__2025-03-22T23:05:19+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmpqy_31h0l']
+[2025-03-22T23:06:30.279+0000] {standard_task_runner.py:85} INFO - Job 84: Subtask run_fraud_detection
+[2025-03-22T23:06:30.338+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.run_fraud_detection manual__2025-03-22T23:05:19+00:00 [running]> on host 4ece88aec9a9
+[2025-03-22T23:06:30.438+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='abelchaguermohamed@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='run_fraud_detection' AIRFLOW_CTX_EXECUTION_DATE='2025-03-22T23:05:19+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-22T23:05:19+00:00'
+[2025-03-22T23:06:47.079+0000] {logging_mixin.py:151} INFO - Suspicious Transactions Detected:
+[2025-03-22T23:06:47.081+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-03-22T23:06:47.096+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline, task_id=run_fraud_detection, execution_date=20250322T230519, start_date=20250322T230630, end_date=20250322T230647
+[2025-03-22T23:06:47.112+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-22T23:06:47.113+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-22T23:06:47.864+0000] {email.py:282} INFO - Sent an alert email to ['abelchaguerm@gmail.com']
+[2025-03-22T23:06:48.869+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-22T23:06:48.893+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

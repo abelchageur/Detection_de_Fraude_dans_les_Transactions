@@ -1,0 +1,19 @@
+[2025-03-19T16:40:10.706+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: faud_detection_pipeline.store_data_hdfs scheduled__2023-10-08T00:00:00+00:00 [queued]>
+[2025-03-19T16:40:10.725+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: faud_detection_pipeline.store_data_hdfs scheduled__2023-10-08T00:00:00+00:00 [queued]>
+[2025-03-19T16:40:10.726+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-03-19T16:40:10.761+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): store_data_hdfs> on 2023-10-08 00:00:00+00:00
+[2025-03-19T16:40:10.770+0000] {standard_task_runner.py:57} INFO - Started process 23649 to run task
+[2025-03-19T16:40:10.777+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'faud_detection_pipeline', 'store_data_hdfs', 'scheduled__2023-10-08T00:00:00+00:00', '--job-id', '1843', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmp1l74z7jb']
+[2025-03-19T16:40:10.785+0000] {standard_task_runner.py:85} INFO - Job 1843: Subtask store_data_hdfs
+[2025-03-19T16:40:10.874+0000] {task_command.py:415} INFO - Running <TaskInstance: faud_detection_pipeline.store_data_hdfs scheduled__2023-10-08T00:00:00+00:00 [running]> on host 0009f5fb76aa
+[2025-03-19T16:40:11.015+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='faud_detection_pipeline' AIRFLOW_CTX_TASK_ID='store_data_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2023-10-08T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-08T00:00:00+00:00'
+[2025-03-19T16:40:11.018+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-19T16:40:11.020+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker cp /tmp/transactions.csv namenode:/tmp/transactions.csv && docker cp /tmp/customers.csv namenode:/tmp/customers.csv && docker cp /tmp/external_data.csv namenode:/tmp/external_data.csv && docker exec namenode bash -c "hdfs dfs -mkdir -p /data/transactions && hdfs dfs -mkdir -p /data/customers && hdfs dfs -mkdir -p /data/external_data && hdfs dfs -put -f /tmp/transactions.csv /data/transactions/transactions.csv && hdfs dfs -put -f /tmp/customers.csv /data/customers/customers.csv && hdfs dfs -put -f /tmp/external_data.csv /data/external_data/external_data.csv && rm -rf /tmp/transactions.csv /tmp/customers.csv /tmp/external_data.csv"']
+[2025-03-19T16:40:11.044+0000] {subprocess.py:86} INFO - Output:
+[2025-03-19T16:40:22.438+0000] {subprocess.py:93} INFO - 2025-03-19 16:40:22,435 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[2025-03-19T16:40:26.455+0000] {subprocess.py:93} INFO - 2025-03-19 16:40:26,452 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[2025-03-19T16:40:30.628+0000] {subprocess.py:93} INFO - 2025-03-19 16:40:30,624 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+[2025-03-19T16:40:31.377+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-03-19T16:40:31.443+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=faud_detection_pipeline, task_id=store_data_hdfs, execution_date=20231008T000000, start_date=20250319T164010, end_date=20250319T164031
+[2025-03-19T16:40:31.523+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-19T16:40:31.585+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

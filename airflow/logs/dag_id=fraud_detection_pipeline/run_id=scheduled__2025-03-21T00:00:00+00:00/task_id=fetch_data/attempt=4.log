@@ -1,0 +1,10 @@
+[2025-03-22T11:09:10.326+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2025-03-21T00:00:00+00:00 [queued]>
+[2025-03-22T11:09:10.335+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2025-03-21T00:00:00+00:00 [queued]>
+[2025-03-22T11:09:10.336+0000] {taskinstance.py:1359} INFO - Starting attempt 4 of 4
+[2025-03-22T11:09:10.350+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): fetch_data> on 2025-03-21 00:00:00+00:00
+[2025-03-22T11:09:10.355+0000] {standard_task_runner.py:57} INFO - Started process 506 to run task
+[2025-03-22T11:09:10.360+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'fetch_data', 'scheduled__2025-03-21T00:00:00+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmpqb0lqaio']
+[2025-03-22T11:09:10.364+0000] {standard_task_runner.py:85} INFO - Job 20: Subtask fetch_data
+[2025-03-22T11:09:10.492+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 20 for task fetch_data (invalid interpolation syntax in 'xgoo%20lpbi%20dboi%20tuqa' at position 4; 506)
+[2025-03-22T11:09:10.518+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-22T11:09:10.547+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

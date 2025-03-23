@@ -1,0 +1,16 @@
+[2025-03-22T16:57:58.123+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_email_dag.send_email_task manual__2025-03-22T16:57:55.303669+00:00 [queued]>
+[2025-03-22T16:57:58.132+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_email_dag.send_email_task manual__2025-03-22T16:57:55.303669+00:00 [queued]>
+[2025-03-22T16:57:58.133+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-03-22T16:57:58.147+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): send_email_task> on 2025-03-22 16:57:55.303669+00:00
+[2025-03-22T16:57:58.153+0000] {standard_task_runner.py:57} INFO - Started process 178 to run task
+[2025-03-22T16:57:58.156+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'test_email_dag', 'send_email_task', 'manual__2025-03-22T16:57:55.303669+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/dag_2.py', '--cfg-path', '/tmp/tmp4r0hb0cw']
+[2025-03-22T16:57:58.159+0000] {standard_task_runner.py:85} INFO - Job 4: Subtask send_email_task
+[2025-03-22T16:57:58.209+0000] {task_command.py:415} INFO - Running <TaskInstance: test_email_dag.send_email_task manual__2025-03-22T16:57:55.303669+00:00 [running]> on host 7ff0998f2fbb
+[2025-03-22T16:57:58.306+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test_email_dag' AIRFLOW_CTX_TASK_ID='send_email_task' AIRFLOW_CTX_EXECUTION_DATE='2025-03-22T16:57:55.303669+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-22T16:57:55.303669+00:00'
+[2025-03-22T16:57:58.325+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-22T16:57:58.326+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-22T16:57:59.592+0000] {dag_2.py:221} ERROR - Failed to send email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-43d43fdac92sm112518225e9.26 - gsmtp')
+[2025-03-22T16:57:59.592+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-03-22T16:57:59.603+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=test_email_dag, task_id=send_email_task, execution_date=20250322T165755, start_date=20250322T165758, end_date=20250322T165759
+[2025-03-22T16:57:59.659+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-22T16:57:59.679+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

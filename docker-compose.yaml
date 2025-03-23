@@ -1,0 +1,140 @@
+version: '3.7'
+
+services:
+  flask_api:
+    build: ./flask_api
+    container_name: flask_api
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: development
+    volumes:
+      - ./flask_api:/app
+    networks:
+      - batch-network
+    depends_on:
+      - postgres
+  hive:
+    build:
+      context: ./hive
+      dockerfile: Dockerfile
+    container_name: hive
+    ports:
+      - "10000:10000"  # Thrift server port
+      - "9083:9083"    # Hive Metastore port
+    environment:
+      HIVE_METASTORE_URI: thrift://hive:9083
+      HADOOP_CONF_DIR: /etc/hadoop/conf
+      CORE_CONF_fs_defaultFS: hdfs://namenode:9000
+    networks:
+      - batch-network
+    depends_on:
+      - postgres
+      - hadoop-namenode
+    volumes:
+      - hive-data:/opt/hive
+      - ./hive/hive_config:/opt/hive/conf  # Make sure hive-site.xml is here
+      - ./hive/home:/home
+  hadoop-namenode:
+    build:
+      context: ./hadoop
+      dockerfile: Dockerfile
+    container_name: namenode
+    environment:
+      - CLUSTER_NAME=test-cluster
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_namenode_name_dir=file:///hadoop/dfs/name
+    ports:
+      - "9870:9870"
+    volumes:
+      - ./hadoop/namenode_data:/hadoop/dfs/name
+      - ./hadoop/home:/home
+      - ./hadoop/apt:/etc/apt
+    networks:
+      - batch-network
+  hadoop-datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_datanode_data_dir=file:///hadoop/dfs/data
+    ports:
+      - "9864:9864"
+    volumes:
+      - ./hadoop/datanode_data:/hadoop/dfs/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - batch-network
+    depends_on:
+      - hadoop-namenode
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow 
+    volumes:
+      - postgres_db_volume:/var/lib/postgresql/data
+      # - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - batch-network
+  airflow-init:
+    image: apache/airflow:2.7.1
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    volumes:
+      - ./airflow/:/opt/airflow/
+    entrypoint: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Admin --lastname User --email admin@example.com --role Admin"
+    networks:
+      - batch-network
+  airflow-webserver:
+    image: apache/airflow:2.7.1
+    container_name: airflow-webserver
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__API__AUTH_BACKENDS=airflow.api.auth.backend.basic_auth
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    ports:
+      - "8085:8080"
+    depends_on:
+      - postgres
+      - airflow-init
+    volumes:
+      - ./airflow/:/opt/airflow/
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: webserver
+    networks:
+      - batch-network
+  airflow-scheduler:
+    image: apache/airflow:2.7.1
+    container_name: airflow-scheduler
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    volumes:
+      - ./airflow/:/opt/airflow/
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: scheduler
+    depends_on:
+      - postgres
+    networks:
+      - batch-network
+
+networks:
+  batch-network:
+    driver: bridge
+
+volumes:
+  hive-data:
+    driver: local
+  postgres_db_volume:
+    driver: local
+  hadoop-namenode-data:
+    driver: local
+  hadoop-datanode-data:
+    driver: local

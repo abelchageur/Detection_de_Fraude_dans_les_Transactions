@@ -1,0 +1,33 @@
+[2025-03-22T19:37:42.348+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_fraud_detection_pipeline.load_data_hive manual__2025-03-22T19:21:29+00:00 [queued]>
+[2025-03-22T19:37:42.360+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_fraud_detection_pipeline.load_data_hive manual__2025-03-22T19:21:29+00:00 [queued]>
+[2025-03-22T19:37:42.361+0000] {taskinstance.py:1359} INFO - Starting attempt 3 of 4
+[2025-03-22T19:37:42.379+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): load_data_hive> on 2025-03-22 19:21:29+00:00
+[2025-03-22T19:37:42.384+0000] {standard_task_runner.py:57} INFO - Started process 961 to run task
+[2025-03-22T19:37:42.389+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'test_fraud_detection_pipeline', 'load_data_hive', 'manual__2025-03-22T19:21:29+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/dag_2.py', '--cfg-path', '/tmp/tmpb8x0o40g']
+[2025-03-22T19:37:42.398+0000] {standard_task_runner.py:85} INFO - Job 33: Subtask load_data_hive
+[2025-03-22T19:37:42.474+0000] {task_command.py:415} INFO - Running <TaskInstance: test_fraud_detection_pipeline.load_data_hive manual__2025-03-22T19:21:29+00:00 [running]> on host c18b752134e7
+[2025-03-22T19:37:42.606+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='abelchaguermohamed@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test_fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='load_data_hive' AIRFLOW_CTX_EXECUTION_DATE='2025-03-22T19:21:29+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-22T19:21:29+00:00'
+[2025-03-22T19:37:42.611+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-22T19:37:42.615+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec hive hive -f /home/hive_script.hql']
+[2025-03-22T19:37:42.664+0000] {subprocess.py:86} INFO - Output:
+[2025-03-22T19:37:45.830+0000] {subprocess.py:93} INFO - SLF4J: Class path contains multiple SLF4J bindings.
+[2025-03-22T19:37:45.831+0000] {subprocess.py:93} INFO - SLF4J: Found binding in [jar:file:/opt/hive/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-22T19:37:45.832+0000] {subprocess.py:93} INFO - SLF4J: Found binding in [jar:file:/opt/hadoop-2.7.4/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-22T19:37:45.833+0000] {subprocess.py:93} INFO - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-22T19:37:45.834+0000] {subprocess.py:93} INFO - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+[2025-03-22T19:37:48.231+0000] {subprocess.py:93} INFO - 
+[2025-03-22T19:37:48.232+0000] {subprocess.py:93} INFO - Logging initialized using configuration in file:/opt/hive/conf/hive-log4j2.properties Async: true
+[2025-03-22T19:38:00.694+0000] {subprocess.py:93} INFO - FAILED: SemanticException org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
+[2025-03-22T19:38:01.823+0000] {subprocess.py:97} INFO - Command exited with return code 64
+[2025-03-22T19:38:01.835+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 64.
+[2025-03-22T19:38:01.839+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=test_fraud_detection_pipeline, task_id=load_data_hive, execution_date=20250322T192129, start_date=20250322T193742, end_date=20250322T193801
+[2025-03-22T19:38:01.869+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-22T19:38:01.870+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-22T19:38:02.563+0000] {email.py:282} INFO - Sent an alert email to ['abelchaguermohamed@gmail.com']
+[2025-03-22T19:38:03.676+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 33 for task load_data_hive (Bash command failed. The command returned a non-zero exit code 64.; 961)
+[2025-03-22T19:38:03.706+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-22T19:38:03.737+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,10 @@
+[2025-03-22T16:00:12.668+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test_email_dag.send_email_task manual__2025-03-22T16:00:11.174978+00:00 [queued]>
+[2025-03-22T16:00:12.686+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test_email_dag.send_email_task manual__2025-03-22T16:00:11.174978+00:00 [queued]>
+[2025-03-22T16:00:12.686+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-03-22T16:00:12.708+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): send_email_task> on 2025-03-22 16:00:11.174978+00:00
+[2025-03-22T16:00:12.720+0000] {standard_task_runner.py:57} INFO - Started process 5359 to run task
+[2025-03-22T16:00:12.724+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'test_email_dag', 'send_email_task', 'manual__2025-03-22T16:00:11.174978+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/dag_2.py', '--cfg-path', '/tmp/tmpu4jatkhb']
+[2025-03-22T16:00:12.730+0000] {standard_task_runner.py:85} INFO - Job 24: Subtask send_email_task
+[2025-03-22T16:00:12.759+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 24 for task send_email_task (invalid interpolation syntax in 'xgoo%20lpbi%20dboi%20tuqa' at position 4; 5359)
+[2025-03-22T16:00:12.778+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-22T16:00:12.800+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,26 @@
+{
+    "email_credentials": {
+      "email": "abelchaguermohmaed@gmail.com",
+      "password": "your_email_password"
+    },
+    "paths": {
+      "hdfs_transactions_path": "/data/transactions",
+      "hdfs_customers_path": "/data/customers",
+      "hdfs_external_data_path": "/data/external_data",
+      "local_transactions_path": "/tmp/transactions.csv",
+      "local_customers_path": "/tmp/customers.csv",
+      "local_external_data_path": "/tmp/external_data.csv",
+      "local_blacklist_path":"/tmp/blacklist.csv",
+      "hive_script_path": "/home/hive_script.hql",
+      "hdfs_blacklist_path":"/data/blacklist"
+    },
+    "api_endpoints": {
+      "transactions": "http://flask_api:5000/api/transactions",
+      "customers": "http://flask_api:5000/api/customers",
+      "external_data": "http://flask_api:5000/api/external_data"
+    },
+    "docker_commands": {
+      "cp": "docker cp",
+      "exec": "docker exec"
+    }
+  }

@@ -1,0 +1,22 @@
+[2025-03-19T21:20:51.675+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: faud_detection_pipeline.populate_blacklist scheduled__2023-10-24T17:00:00+00:00 [queued]>
+[2025-03-19T21:20:51.715+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: faud_detection_pipeline.populate_blacklist scheduled__2023-10-24T17:00:00+00:00 [queued]>
+[2025-03-19T21:20:51.727+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-03-19T21:20:51.798+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): populate_blacklist> on 2023-10-24 17:00:00+00:00
+[2025-03-19T21:20:51.825+0000] {standard_task_runner.py:57} INFO - Started process 7733 to run task
+[2025-03-19T21:20:51.834+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'faud_detection_pipeline', 'populate_blacklist', 'scheduled__2023-10-24T17:00:00+00:00', '--job-id', '3311', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmp5_e5m4p4']
+[2025-03-19T21:20:51.843+0000] {standard_task_runner.py:85} INFO - Job 3311: Subtask populate_blacklist
+[2025-03-19T21:20:52.332+0000] {task_command.py:415} INFO - Running <TaskInstance: faud_detection_pipeline.populate_blacklist scheduled__2023-10-24T17:00:00+00:00 [running]> on host 445fc0f18383
+[2025-03-19T21:20:52.688+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='faud_detection_pipeline' AIRFLOW_CTX_TASK_ID='populate_blacklist' AIRFLOW_CTX_EXECUTION_DATE='2023-10-24T17:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-24T17:00:00+00:00'
+[2025-03-19T21:20:52.747+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/dag_1.py", line 123, in populate_blacklist
+    f.write(f"{entry['customer_id']},{entry['blacklist_reason']},{entry['blacklist_date']},{entry['source']}\n")
+TypeError: string indices must be integers
+[2025-03-19T21:20:52.835+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=faud_detection_pipeline, task_id=populate_blacklist, execution_date=20231024T170000, start_date=20250319T212051, end_date=20250319T212052
+[2025-03-19T21:20:52.917+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3311 for task populate_blacklist (string indices must be integers; 7733)
+[2025-03-19T21:20:53.002+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-19T21:20:54.127+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

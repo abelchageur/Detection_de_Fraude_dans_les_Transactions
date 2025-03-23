@@ -1,0 +1,29 @@
+[2025-03-19T12:48:25.845+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.load_data_hive scheduled__2023-10-12T07:00:00+00:00 [queued]>
+[2025-03-19T12:48:25.863+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.load_data_hive scheduled__2023-10-12T07:00:00+00:00 [queued]>
+[2025-03-19T12:48:25.864+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-19T12:48:25.899+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): load_data_hive> on 2023-10-12 07:00:00+00:00
+[2025-03-19T12:48:25.910+0000] {standard_task_runner.py:57} INFO - Started process 11128 to run task
+[2025-03-19T12:48:25.916+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'load_data_hive', 'scheduled__2023-10-12T07:00:00+00:00', '--job-id', '918', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmp120j423o']
+[2025-03-19T12:48:25.923+0000] {standard_task_runner.py:85} INFO - Job 918: Subtask load_data_hive
+[2025-03-19T12:48:26.022+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.load_data_hive scheduled__2023-10-12T07:00:00+00:00 [running]> on host 0009f5fb76aa
+[2025-03-19T12:48:26.163+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='load_data_hive' AIRFLOW_CTX_EXECUTION_DATE='2023-10-12T07:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-12T07:00:00+00:00'
+[2025-03-19T12:48:26.166+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-19T12:48:26.167+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec hive hive -f /home/hive_script.hql']
+[2025-03-19T12:48:26.184+0000] {subprocess.py:86} INFO - Output:
+[2025-03-19T12:48:28.630+0000] {subprocess.py:93} INFO - SLF4J: Class path contains multiple SLF4J bindings.
+[2025-03-19T12:48:28.632+0000] {subprocess.py:93} INFO - SLF4J: Found binding in [jar:file:/opt/hive/lib/log4j-slf4j-impl-2.6.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-19T12:48:28.633+0000] {subprocess.py:93} INFO - SLF4J: Found binding in [jar:file:/opt/hadoop-2.7.4/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+[2025-03-19T12:48:28.639+0000] {subprocess.py:93} INFO - SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+[2025-03-19T12:48:28.640+0000] {subprocess.py:93} INFO - SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+[2025-03-19T12:48:30.767+0000] {subprocess.py:93} INFO - 
+[2025-03-19T12:48:30.768+0000] {subprocess.py:93} INFO - Logging initialized using configuration in file:/opt/hive/conf/hive-log4j2.properties Async: true
+[2025-03-19T12:48:40.342+0000] {subprocess.py:93} INFO - OK
+[2025-03-19T12:48:40.345+0000] {subprocess.py:93} INFO - Time taken: 8.488 seconds
+[2025-03-19T12:48:40.817+0000] {subprocess.py:93} INFO - OK
+[2025-03-19T12:48:40.822+0000] {subprocess.py:93} INFO - Time taken: 0.466 seconds
+[2025-03-19T12:48:40.866+0000] {subprocess.py:93} INFO - OK
+[2025-03-19T12:48:40.868+0000] {subprocess.py:93} INFO - Time taken: 0.049 seconds
+[2025-03-19T12:48:40.999+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-03-19T12:48:41.043+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline, task_id=load_data_hive, execution_date=20231012T070000, start_date=20250319T124825, end_date=20250319T124841
+[2025-03-19T12:48:41.089+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-19T12:48:41.124+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,13 @@
+[2025-03-19T11:42:37.308+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2023-10-05T00:00:00+00:00 [queued]>
+[2025-03-19T11:42:37.328+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2023-10-05T00:00:00+00:00 [queued]>
+[2025-03-19T11:42:37.329+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-19T11:42:37.356+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): fetch_data> on 2023-10-05 00:00:00+00:00
+[2025-03-19T11:42:37.367+0000] {standard_task_runner.py:57} INFO - Started process 7417 to run task
+[2025-03-19T11:42:37.374+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'fetch_data', 'scheduled__2023-10-05T00:00:00+00:00', '--job-id', '260', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmph3dlworb']
+[2025-03-19T11:42:37.379+0000] {standard_task_runner.py:85} INFO - Job 260: Subtask fetch_data
+[2025-03-19T11:42:37.490+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.fetch_data scheduled__2023-10-05T00:00:00+00:00 [running]> on host 0009f5fb76aa
+[2025-03-19T11:42:37.694+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='fetch_data' AIRFLOW_CTX_EXECUTION_DATE='2023-10-05T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-05T00:00:00+00:00'
+[2025-03-19T11:42:37.800+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-03-19T11:42:37.826+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline, task_id=fetch_data, execution_date=20231005T000000, start_date=20250319T114237, end_date=20250319T114237
+[2025-03-19T11:42:37.873+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-19T11:42:37.967+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

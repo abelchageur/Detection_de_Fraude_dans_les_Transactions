@@ -1,0 +1,112 @@
+[2025-03-18T23:27:01.803+0000] {processor.py:157} INFO - Started process (PID=230) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:27:01.805+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:27:01.807+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:27:01.807+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:27:01.843+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:27:01.837+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:27:01.846+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:27:01.874+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.079 seconds
+[2025-03-18T23:27:32.216+0000] {processor.py:157} INFO - Started process (PID=250) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:27:32.219+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:27:32.220+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:27:32.220+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:27:32.242+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:27:32.239+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:27:32.244+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:27:32.269+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.058 seconds
+[2025-03-18T23:28:02.602+0000] {processor.py:157} INFO - Started process (PID=270) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:28:02.604+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:28:02.605+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:28:02.605+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:28:02.622+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:28:02.619+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:28:02.624+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:28:02.649+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.052 seconds
+[2025-03-18T23:28:33.010+0000] {processor.py:157} INFO - Started process (PID=290) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:28:33.011+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:28:33.012+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:28:33.012+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:28:33.033+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:28:33.029+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:28:33.035+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:28:33.058+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.051 seconds
+[2025-03-18T23:29:03.412+0000] {processor.py:157} INFO - Started process (PID=310) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:29:03.413+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:29:03.414+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:29:03.414+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:29:03.428+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:29:03.425+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:29:03.429+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:29:03.451+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.042 seconds
+[2025-03-18T23:29:33.778+0000] {processor.py:157} INFO - Started process (PID=330) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:29:33.779+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:29:33.781+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:29:33.780+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:29:33.797+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:29:33.794+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:29:33.798+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:29:33.819+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.044 seconds
+[2025-03-18T23:30:04.173+0000] {processor.py:157} INFO - Started process (PID=350) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:30:04.174+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:30:04.175+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:30:04.175+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:30:04.189+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:30:04.186+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:30:04.190+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:30:04.212+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.042 seconds
+[2025-03-18T23:30:34.683+0000] {processor.py:157} INFO - Started process (PID=370) to work on /opt/airflow/dags/dag_2.py
+[2025-03-18T23:30:34.685+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_2.py for tasks to queue
+[2025-03-18T23:30:34.686+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:30:34.686+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:30:34.701+0000] {logging_mixin.py:151} INFO - [2025-03-18T23:30:34.698+0000] {dagbag.py:347} ERROR - Failed to import: /opt/airflow/dags/dag_2.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 343, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/dag_2.py", line 2, in <module>
+    from airflow.providers.apache.hive.operators.hive import HiveOperator
+ModuleNotFoundError: No module named 'airflow.providers.apache'
+[2025-03-18T23:30:34.702+0000] {processor.py:841} WARNING - No viable dags retrieved from /opt/airflow/dags/dag_2.py
+[2025-03-18T23:30:34.725+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_2.py took 0.045 seconds

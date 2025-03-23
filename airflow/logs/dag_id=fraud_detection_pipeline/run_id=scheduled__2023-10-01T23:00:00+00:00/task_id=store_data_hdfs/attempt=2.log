@@ -1,0 +1,46 @@
+[2025-03-19T15:08:09.058+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-01T23:00:00+00:00 [queued]>
+[2025-03-19T15:08:09.075+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-01T23:00:00+00:00 [queued]>
+[2025-03-19T15:08:09.077+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-03-19T15:08:09.108+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): store_data_hdfs> on 2023-10-01 23:00:00+00:00
+[2025-03-19T15:08:09.118+0000] {standard_task_runner.py:57} INFO - Started process 7567 to run task
+[2025-03-19T15:08:09.123+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'store_data_hdfs', 'scheduled__2023-10-01T23:00:00+00:00', '--job-id', '1179', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmptmfobbu4']
+[2025-03-19T15:08:09.128+0000] {standard_task_runner.py:85} INFO - Job 1179: Subtask store_data_hdfs
+[2025-03-19T15:08:09.230+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-01T23:00:00+00:00 [running]> on host 0009f5fb76aa
+[2025-03-19T15:08:09.402+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='store_data_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T23:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T23:00:00+00:00'
+[2025-03-19T15:08:09.407+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-19T15:08:09.408+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker cp /tmp/transactions.json namenode:/tmp/transactions.json && docker cp /tmp/customers.json namenode:/tmp/customers.json && docker cp /tmp/external_data.json namenode:/tmp/external_data.json && docker exec namenode bash -c "hdfs dfs -mkdir -p /data && hdfs dfs -put -f /tmp/transactions.json /data/transactions/transactions.json && hdfs dfs -put -f /tmp/customers.json /data/customers/customers.json && hdfs dfs -put -f /tmp/external_data.json /data/external_data/external_data.json  "']
+[2025-03-19T15:08:09.428+0000] {subprocess.py:86} INFO - Output:
+[2025-03-19T15:08:18.063+0000] {subprocess.py:93} INFO - put: `/data/transactions/transactions.json': No such file or directory: `hdfs://namenode:9000/data/transactions/transactions.json'
+[2025-03-19T15:08:18.782+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-03-19T15:08:18.820+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-19T15:08:18.830+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=fraud_detection_pipeline, task_id=store_data_hdfs, execution_date=20231001T230000, start_date=20250319T150809, end_date=20250319T150818
+[2025-03-19T15:08:19.146+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 1179 for task store_data_hdfs (Bash command failed. The command returned a non-zero exit code 1.; 7567)
+[2025-03-19T15:08:19.200+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-19T15:08:19.276+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-19T21:24:16.442+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-01T23:00:00+00:00 [queued]>
+[2025-03-19T21:24:16.543+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-01T23:00:00+00:00 [queued]>
+[2025-03-19T21:24:16.550+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-03-19T21:24:16.795+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): store_data_hdfs> on 2023-10-01 23:00:00+00:00
+[2025-03-19T21:24:16.852+0000] {standard_task_runner.py:57} INFO - Started process 8896 to run task
+[2025-03-19T21:24:17.052+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline', 'store_data_hdfs', 'scheduled__2023-10-01T23:00:00+00:00', '--job-id', '3387', '--raw', '--subdir', 'DAGS_FOLDER/dag_1.py', '--cfg-path', '/tmp/tmpamkpxb4u']
+[2025-03-19T21:24:17.221+0000] {standard_task_runner.py:85} INFO - Job 3387: Subtask store_data_hdfs
+[2025-03-19T21:24:18.807+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline.store_data_hdfs scheduled__2023-10-01T23:00:00+00:00 [running]> on host 445fc0f18383
+[2025-03-19T21:24:19.941+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline' AIRFLOW_CTX_TASK_ID='store_data_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2023-10-01T23:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-01T23:00:00+00:00'
+[2025-03-19T21:24:19.962+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-03-19T21:24:19.992+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker cp /tmp/transactions.csv namenode:/tmp/transactions.csv && docker cp /tmp/customers.csv namenode:/tmp/customers.csv && docker cp /tmp/external_data.csv namenode:/tmp/external_data.csv && docker exec namenode bash -c "hdfs dfs -mkdir -p /data/transactions && hdfs dfs -mkdir -p /data/customers && hdfs dfs -mkdir -p /data/external_data && hdfs dfs -put -f /tmp/transactions.csv /data/transactions/transactions.csv && hdfs dfs -put -f /tmp/customers.csv /data/customers/customers.csv && hdfs dfs -put -f /tmp/external_data.csv /data/external_data/external_data.csv && rm -rf /tmp/transactions.csv /tmp/customers.csv /tmp/external_data.csv"']
+[2025-03-19T21:24:20.145+0000] {subprocess.py:86} INFO - Output:
+[2025-03-19T21:25:40.853+0000] {subprocess.py:93} INFO - put: `/tmp/transactions.csv': No such file or directory
+[2025-03-19T21:25:41.324+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-03-19T21:25:41.363+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-03-19T21:25:41.377+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=fraud_detection_pipeline, task_id=store_data_hdfs, execution_date=20231001T230000, start_date=20250319T212416, end_date=20250319T212541
+[2025-03-19T21:25:41.604+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3387 for task store_data_hdfs (Bash command failed. The command returned a non-zero exit code 1.; 8896)
+[2025-03-19T21:25:41.632+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-19T21:25:41.678+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

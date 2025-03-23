@@ -1,0 +1,17 @@
+[2025-03-23T15:04:14.650+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_pipeline_2.generate_alerts manual__2025-03-23T14:57:37+00:00 [queued]>
+[2025-03-23T15:04:14.661+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_pipeline_2.generate_alerts manual__2025-03-23T14:57:37+00:00 [queued]>
+[2025-03-23T15:04:14.662+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 4
+[2025-03-23T15:04:14.684+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): generate_alerts> on 2025-03-23 14:57:37+00:00
+[2025-03-23T15:04:14.690+0000] {standard_task_runner.py:57} INFO - Started process 11459 to run task
+[2025-03-23T15:04:14.696+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_pipeline_2', 'generate_alerts', 'manual__2025-03-23T14:57:37+00:00', '--job-id', '164', '--raw', '--subdir', 'DAGS_FOLDER/dag_2.py', '--cfg-path', '/tmp/tmphrww6i97']
+[2025-03-23T15:04:14.699+0000] {standard_task_runner.py:85} INFO - Job 164: Subtask generate_alerts
+[2025-03-23T15:04:14.763+0000] {task_command.py:415} INFO - Running <TaskInstance: fraud_detection_pipeline_2.generate_alerts manual__2025-03-23T14:57:37+00:00 [running]> on host 4ece88aec9a9
+[2025-03-23T15:04:14.867+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='abelchaguermohmaed@gmail.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='fraud_detection_pipeline_2' AIRFLOW_CTX_TASK_ID='generate_alerts' AIRFLOW_CTX_EXECUTION_DATE='2025-03-23T14:57:37+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-23T14:57:37+00:00'
+[2025-03-23T15:04:14.869+0000] {logging_mixin.py:151} INFO - Suspicious Transactions:
+[2025-03-23T15:04:14.870+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-03-23T15:04:14.887+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=fraud_detection_pipeline_2, task_id=generate_alerts, execution_date=20250323T145737, start_date=20250323T150414, end_date=20250323T150414
+[2025-03-23T15:04:14.907+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/email.py:154 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-03-23T15:04:14.909+0000] {email.py:270} INFO - Email alerting: attempt 1
+[2025-03-23T15:04:16.078+0000] {email.py:282} INFO - Sent an alert email to ['abelchaguermohmaed@gmail.com']
+[2025-03-23T15:04:17.325+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-23T15:04:17.341+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
