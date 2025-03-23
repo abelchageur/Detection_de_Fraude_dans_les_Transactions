@@ -33,11 +33,11 @@ jobs:
           curl http://localhost:5000/api/externalData
   
       - name: check postgres database
-        run: docker exec -it postgres bash -c "psql -U airflow -c '\l'"
+        run: docker exec postgres bash -c "psql -U airflow -c '\l'"
 
 
       - name: Run schematool in hive
-        run: docker exec -it hive schematool -initSchema -dbType postgres
+        run: docker exec hive schematool -initSchema -dbType postgres
 
       - name: Run Tests in hive
         run: docker exec hive bash -c "hive -e 'show tables;'"
