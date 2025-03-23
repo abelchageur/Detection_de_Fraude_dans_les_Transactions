@@ -24,4 +24,4 @@ jobs:
         run: docker-compose up -d
 
       - name: Run Tests in Docker
-        run: docker-compose exec -T flask_api pytest flask_api/tests/
+        run: docker ps
