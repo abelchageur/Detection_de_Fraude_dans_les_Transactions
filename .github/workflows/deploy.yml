@@ -33,4 +33,4 @@ jobs:
           curl http://localhost:5000/api/externalData
 
       - name: Run Tests in hive
-        run: docker exec -it hive bash -c "hive -e 'show tables;'"
+        run: docker exec hive bash -c "hive -e 'show tables;'"
